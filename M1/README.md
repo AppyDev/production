@@ -24,7 +24,9 @@
 9. Go to the IP:8080/iTrust_war_filename to view the login page. 
 
 
+##WORK SPLIT
 
+iTrust - Keshav Parthasarathy (kpartha2) and Sharath Sreenivasan (ssreeni)
 
 ##SCREENCAST
 
