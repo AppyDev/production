@@ -14,6 +14,14 @@
           - 'python-pip'
           - 'nginx'
 
+  vars_prompt:
+    - name: "emailid"
+      private: no
+      prompt: "Please enter your email-id"
+    - name: "password"
+      private: yes
+      prompt: "PLease enter your password"
+
   tasks:   
     - name: apt update
       become_user: root
@@ -23,11 +31,17 @@
       apt: name={{ item }} state=present
       with_items: "{{ dependencies }}"
 
+    - name: Install the latest pymongo package
+      pip: name=pymongo state=latest use_mirrors=no
+      
     - name: Clone submission repository
       git: repo=https://{{lookup('env','GITUSER')}}:{{ lookup('env', 'GITPWD' )}}@github.ncsu.edu/akpatil/CSC519-Project.git dest=checkboxio/.
 
-    - name: Install the latest pymongo package
-      pip: name=pymongo state=latest use_mirrors=no
+    - name: Set email in environment variable
+      command: chdir=CSC519-Project/checkbox.io/server-side/site export SMTPEMAIL={{ emailid }}
+      
+    - name: Set password in environment variable
+      command: chdir=CSC519-Project/checkbox.io/server-side/site export SMTPPWD={{ password }}
 
     - name: Create user
       mongodb_user:
@@ -52,10 +66,10 @@
       service:
         name: nginx
         state: started
-    
+
     - name: npm install
-      command: chdir=checboxio/CSC519-Project/checkbox.io/server-side/site npm install
+      command: chdir=CSC519-Project/checkbox.io/server-side/site npm install
 
     - name: Run checkbox.io
-      command: chdir=checkboxio/CSC519-Project/checkbox.io/server-side/site node server.js
+      command: chdir=CSC519-Project/checkbox.io/server-side/site node server.js
 

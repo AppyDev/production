@@ -17,8 +17,8 @@ MongoClient.connect("mongodb://admin:admin@localhost:27017/site?authSource=admin
 });
 
 var emailServer  = emailjs.server.connect({
-   user:    "supportemail@domain.com", 
-   password:"supportpwd", 
+   user:    process.env.SMTPEMAIL, 
+   password:process.env.SMTPPWD, 
    host:    "smtp.gmail.com", 
    ssl:     true
 });

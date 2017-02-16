@@ -7,8 +7,8 @@ var Server = mongo.Server,
     BSON = mongo.BSONPure;
 
 var emailServer  = emailjs.server.connect({
-   user:    "supportemail@domain.com", 
-   password:"supportpwd", 
+   user:    process.env.SMTPEMAIL, 
+   password:process.env.SMTPPWD, 
    host:    "smtp.gmail.com", 
    ssl:     true
 });
