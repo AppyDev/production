@@ -9,4 +9,12 @@
 3. Memory assigned to the VM had to be changed manually. We solved this by editing the Vagrant file to accomodate the extra memory.
 4. Cloning private Git repository [iTrust] with the necessary credentials. This was solved by using environment variables.
 5. Starting tomcat from ansible.
+6. 
 
+
+
+
+
+##SCREENCAST
+
+1. iTrust - https://www.youtube.com/watch?v=hux_0EK0Taw&feature=youtu.be&hd=1
