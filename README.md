@@ -1,9 +1,9 @@
 # CSC519-Project
 
-## Aparna Patil - akpatil
+### Aparna Patil - akpatil
 
-## Keshav Parthasarathy - kpartha2
+### Keshav Parthasarathy - kpartha2
 
-## Sharath Sreenivasan - ssreeni
+### Sharath Sreenivasan - ssreeni
 
-## Shreya Pagedar - svpageda
+### Shreya Pagedar - svpageda
