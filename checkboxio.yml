@@ -23,6 +23,9 @@
       apt: name={{ item }} state=present
       with_items: "{{ dependencies }}"
 
+    - name: Clone submission repository
+      git: repo=https://{{lookup('env','GITUSER')}}:{{ lookup('env', 'GITPWD' )}}@github.ncsu.edu/akpatil/CSC519-Project.git dest=checkboxio/.
+
     - name: Install the latest pymongo package
       pip: name=pymongo state=latest use_mirrors=no
 
@@ -50,14 +53,9 @@
         name: nginx
         state: started
     
-    - name: clone a repository
-      git: 
-        repo: https://github.com/AppyDev/CSC519-Project.git
-        dest: /home/vagrant/CSC519-Project
-
     - name: npm install
-      command: chdir=CSC519-Project/checkbox.io/server-side/site npm install
+      command: chdir=checboxio/CSC519-Project/checkbox.io/server-side/site npm install
 
     - name: Run checkbox.io
-      command: chdir=CSC519-Project/checkbox.io/server-side/site node server.js
+      command: chdir=checkboxio/CSC519-Project/checkbox.io/server-side/site node server.js
 
