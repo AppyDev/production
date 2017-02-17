@@ -25,12 +25,16 @@
 
 ### Issues faced in checkbox.io
 
-1. Mongodb connection string
-2. Dependencies to run checkbox.io
-  The existing package.json was missing some dependencies to setup the project. As we progressed with npm install, we encountered missing packages and updated the package.json
-3. SMTP email server settings
-4. Running the nodejs application from ansible
-5. Cloning private repository from with necessary credentials. 
+1. **Mongodb connection string:**
+    Mongodb connection string included user, password which are rrequired to be loaded from environment variables for better configurability.
+2. **Dependencies to run checkbox.io:**
+    The existing package.json was missing some dependencies to setup the project. As we progressed with npm install, we encountered missing packages and updated the package.json
+3. **SMTP email server settings:**
+    There were sample input values added for SMTP email transfer. Hence, we have loaded SMTP server details from environment variables.
+4. **Running the nodejs application from ansible:**
+    Running nodejs project from ansible was challenging. To running the server for listening requestes continuously we have used forever module. Also, we have logged the shell output to out.log and errors to err.log files.
+5. **Cloning private repository from with necessary credentials:**
+    Cloning the private repository from ncsu github account was challenging. We have set SSH keys and loaded github credentials from environment variables while cloning the repo.
 
 ### Steps to run checkbox.io
 
