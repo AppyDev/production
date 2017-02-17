@@ -3,9 +3,6 @@
   become: yes
   become_user: root
   vars: 
-    git_repo: 'https://github.ncsu.edu/akpatil/CSC519-Project.git'
-    project_path: '/home/vagrant'
-    deploy_user: vagrant
     dependencies: 
           - 'git'
           - 'nodejs-legacy'
@@ -49,7 +46,7 @@
       become: yes
       command: cp checkboxio/M1/nodejsProject/checkbox.io/local-conf/default /etc/nginx/sites-enabled/default
 
-    - name: Restarting NGINX
+    - name: Restarting ninx
       service:
         name: nginx
         state: restarted
@@ -57,15 +54,15 @@
     - name: npm install
       command: chdir=checkboxio/M1/nodejsProject/checkbox.io/server-side/site npm install
 
-    - name: "Install forever (to run Node.js app)."
+    - name: Install forever
       npm: name=forever global=yes state=present
 
-    - name: "Check list of Node.js apps running."
+    - name: Check list of nodejs apps running
       command: forever list
       register: forever_list
       changed_when: false
 
-    - name: "Start example Node.js app."
+    - name: Start checkboxio app
       command: forever start -o out.log -e err.log  server.js
       args:
         chdir: checkboxio/M1/nodejsProject/checkbox.io/server-side/site/
