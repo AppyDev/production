@@ -17,7 +17,9 @@ var emailServer  = emailjs.server.connect({
 
 var MongoClient = mongo.MongoClient;
 var db = null;
-MongoClient.connect("mongodb://admin:admin@localhost:27017/site?authSource=admin", function(err, authdb) {
+var mongouser = process.env.MONGOUSER;
+var mongopwd = process.env.MONGOPWD;
+MongoClient.connect("mongodb://"+mongouser+":"+mongopwd+"@localhost:27017/site?authSource=admin", function(err, authdb) {
   // Now you can use the database in the db variable
   db = authdb;
   console.log( err || "connected!" );
