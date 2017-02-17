@@ -23,11 +23,55 @@
 8. Restart tomcat.
 9. Go to the IP:8080/iTrust_war_filename to view the login page. 
 
+### Issues faced in checkbox.io
 
+1. Mongodb connection string
+2. Dependencies to run checkbox.io
+  The existing package.json was missing some dependencies to setup the project. As we progressed with npm install, we encountered missing packages and updated the package.json
+3. SMTP email server settings
+4. Running the nodejs application from ansible
+5. Cloning private repository from with necessary credentials. 
+
+### Steps to run checkbox.io
+
+1. Add following environment variables in your bash:
+  
+  ```
+    export SMTPEMAIL = <Your-email-id>
+    export SMTPEMAIL = <Your-password>
+    export GITUSER = <Your-ncsu-github-email-id>
+    export GITPWD = <Your-ncsu-github-password>
+    export MONGOUSER = <mongo_user_name>
+    export MONGOPWD = <mongo_user_password>
+  ```
+2. Load bashrc into new shell
+  
+  ```
+    source ~/.bashrc
+  ```
+3. Clone the repository
+
+  ```
+    git clone https://github.ncsu.edu/akpatil/CSC519-Project.git
+  ```
+4. Change directory
+  
+  ```
+    cd CSC519-Project/M1/nodejsProject/checkbox.io
+  ```
+5. Run asnible script
+  
+  ```
+    ansible-playbook -i inventory checkboxio.yml
+  ```
+  
 ##WORK SPLIT
 
 iTrust - Keshav Parthasarathy (kpartha2) and Sharath Sreenivasan (ssreeni)
 
+checkboxio - Aparna Patil (akpatil) and Shreya Pagedar (svpageda)
+
 ##SCREENCAST
 
 1. iTrust - https://www.youtube.com/watch?v=hux_0EK0Taw&feature=youtu.be&hd=1
+2. checkboxio - 
