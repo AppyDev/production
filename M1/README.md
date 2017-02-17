@@ -78,4 +78,4 @@ checkboxio - Aparna Patil (akpatil) and Shreya Pagedar (svpageda)
 ##SCREENCAST
 
 1. iTrust - https://www.youtube.com/watch?v=hux_0EK0Taw&feature=youtu.be&hd=1
-2. checkboxio - 
+2. checkboxio - https://youtu.be/5lvRd-ZDaFo
