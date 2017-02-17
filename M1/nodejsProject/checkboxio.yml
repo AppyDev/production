@@ -29,12 +29,6 @@
     - name: Clone submission repository
       git: repo=https://{{lookup('env','GITUSER')}}:{{ lookup('env','GITPWD')}}@github.ncsu.edu/akpatil/CSC519-Project.git dest=checkboxio/.
 
-    - name: Set email in environment variable
-      command: chdir=CSC519-Project/checkbox.io/server-side/site export SMTPEMAIL={{ emailid }}
-
-    - name: Set password in environment variable
-      command: chdir=CSC519-Project/checkbox.io/server-side/site export SMTPPWD={{ password }}
-
     - name: Create user
       mongodb_user:
         database: admin
@@ -50,10 +44,10 @@
       become: yes
       command: cp checkboxio/M1/nodejsProject/checkbox.io/local-conf/default /etc/nginx/sites-enabled/default
 
-    - name: Starting NGINX
+    - name: Restarting NGINX
       service:
         name: nginx
-        state: started
+        state: restarted
 
     - name: npm install
       command: chdir=checkboxio/M1/nodejsProject/checkbox.io/server-side/site npm install
@@ -70,6 +64,6 @@
       command: forever start -o out.log -e err.log  server.js
       args:
         chdir: checkboxio/M1/nodejsProject/checkbox.io/server-side/site/
-      #when: "forever_list.stdout.find('checkboxio/M1/nodejsProject/checkbox.io/server-side/site/server.js') == -1"
+      when: "forever_list.stdout.find('checkboxio/M1/nodejsProject/checkbox.io/server-side/site/server.js') == -1"
 
 
