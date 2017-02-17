@@ -14,57 +14,49 @@
           - 'python-pip'
           - 'nginx'
 
-  # vars_prompt:
-  #   - name: "emailid"
-  #     private: no
-  #     prompt: "Please enter your email-id"
-  #   - name: "password"
-  #     private: yes
-  #     prompt: "PLease enter your password"
-
   tasks:   
-    # - name: apt update
-    #   become_user: root
-    #   command: sudo apt-get update
+    - name: apt update
+      become_user: root
+      command: sudo apt-get update
 
-    # - name: Install dependencies
-    #   apt: name={{ item }} state=present
-    #   with_items: "{{ dependencies }}"
+    - name: Install dependencies
+      apt: name={{ item }} state=present
+      with_items: "{{ dependencies }}"
 
-    # - name: Install the latest pymongo package
-    #   pip: name=pymongo state=latest use_mirrors=no
+    - name: Install the latest pymongo package
+      pip: name=pymongo state=latest use_mirrors=no
 
-    # - name: Clone submission repository
-    #   git: repo=https://{{lookup('env','GITUSER')}}:{{ lookup('env','GITPWD')}}@github.ncsu.edu/akpatil/CSC519-Project.git dest=checkboxio/.
+    - name: Clone submission repository
+      git: repo=https://{{lookup('env','GITUSER')}}:{{ lookup('env','GITPWD')}}@github.ncsu.edu/akpatil/CSC519-Project.git dest=checkboxio/.
 
-    # - name: Set email in environment variable
-    #   command: chdir=CSC519-Project/checkbox.io/server-side/site export SMTPEMAIL={{ emailid }}
+    - name: Set email in environment variable
+      command: chdir=CSC519-Project/checkbox.io/server-side/site export SMTPEMAIL={{ emailid }}
 
-    # - name: Set password in environment variable
-    #   command: chdir=CSC519-Project/checkbox.io/server-side/site export SMTPPWD={{ password }}
+    - name: Set password in environment variable
+      command: chdir=CSC519-Project/checkbox.io/server-side/site export SMTPPWD={{ password }}
 
-    # - name: Create user
-    #   mongodb_user:
-    #     database: admin
-    #     name: admin
-    #     password: admin
-    #     state: present
+    - name: Create user
+      mongodb_user:
+        database: admin
+        name: admin
+        password: admin
+        state: present
 
-    # - name: Copy nginx config file
-    #   become: yes
-    #   command: cp checkboxio/M1/nodejsProject/checkbox.io/local-conf/nginx.conf /etc/nginx/nginx.conf
+    - name: Copy nginx config file
+      become: yes
+      command: cp checkboxio/M1/nodejsProject/checkbox.io/local-conf/nginx.conf /etc/nginx/nginx.conf
 
-    # - name: Copy nginx default file
-    #   become: yes
-    #   command: cp checkboxio/M1/nodejsProject/checkbox.io/local-conf/default /etc/nginx/sites-enabled/default
+    - name: Copy nginx default file
+      become: yes
+      command: cp checkboxio/M1/nodejsProject/checkbox.io/local-conf/default /etc/nginx/sites-enabled/default
 
-    # - name: Starting NGINX
-    #   service:
-    #     name: nginx
-    #     state: started
+    - name: Starting NGINX
+      service:
+        name: nginx
+        state: started
 
-    # - name: npm install
-    #   command: chdir=checkboxio/M1/nodejsProject/checkbox.io/server-side/site npm install
+    - name: npm install
+      command: chdir=checkboxio/M1/nodejsProject/checkbox.io/server-side/site npm install
 
     - name: "Install forever (to run Node.js app)."
       npm: name=forever global=yes state=present
@@ -80,6 +72,4 @@
         chdir: checkboxio/M1/nodejsProject/checkbox.io/server-side/site/
       #when: "forever_list.stdout.find('checkboxio/M1/nodejsProject/checkbox.io/server-side/site/server.js') == -1"
 
-    # - name: Run checkbox.io
-    #   command: chdir=checkboxio/M1/nodejsProject/checkbox.io/server-side/site node server.js
 
