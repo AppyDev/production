@@ -10,4 +10,5 @@
 
 ## Reports:
 
+The link for report of milestone 1 can be found here:
 [Milestone 1 Report](https://github.ncsu.edu/akpatil/CSC519-Project/blob/master/M1/README.md)
