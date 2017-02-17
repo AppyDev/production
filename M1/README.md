@@ -59,7 +59,7 @@
   ```
     cd CSC519-Project/M1/nodejsProject/checkbox.io
   ```
-5. Run asnible script
+5. Run ansible script
   
   ```
     ansible-playbook -i inventory checkboxio.yml
