@@ -17,7 +17,7 @@
   copy:
     remote_src: true
     src: "/home/vagrant/code/itrust/iTrust/target/iTrust-23.0.0.war"
-    dest: "/home/vagrant/code/apache-tomcat-8.0.41/webapps/itrust.war"
+    dest: "/home/vagrant/code/apache-tomcat-8.0.41/webapps/iTrust.war"
 
 - name: Shutting Down Tomcat
   shell: nohup sudo /home/vagrant/code/apache-tomcat-8.0.41/bin/shutdown.sh start
