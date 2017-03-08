@@ -5,7 +5,7 @@
 |--------------	|----------	|
 | Aparna Patil 	| akpatil  	|
 | Keshav Parthasarathy 	| kpartha2  	|
-| Sharath Sreenivasany 	| ssreeni  	|
+| Sharath Sreenivasan 	| ssreeni  	|
 | Shreya Pagedar 	| svpageda  	|
 
 ## Reports:
