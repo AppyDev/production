@@ -41,12 +41,12 @@
 1. Add following environment variables in your bash:
   
   ```
-    export SMTPEMAIL = <Your-email-id>
-    export SMTPEMAIL = <Your-password>
-    export GITUSER = <Your-ncsu-github-email-id>
-    export GITPWD = <Your-ncsu-github-password>
-    export MONGOUSER = <mongo_user_name>
-    export MONGOPWD = <mongo_user_password>
+    export SMTPEMAIL=<Your-email-id>
+    export SMTPPWD=<Your-password>
+    export GITUSER=<Your-ncsu-github-email-id>
+    export GITPWD=<Your-ncsu-github-password>
+    export MONGOUSER=<mongo_user_name>
+    export MONGOPWD=<mongo_user_password>
   ```
 2. Load bashrc into new shell
   
@@ -61,7 +61,7 @@
 4. Change directory
   
   ```
-    cd CSC519-Project/M1/nodejsProject/checkbox.io
+    cd CSC519-Project/M1/nodejsProject/
   ```
 5. Run ansible script
   
