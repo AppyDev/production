@@ -14,7 +14,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cd /home/vagrant/tool
-node analysis checkbox.io/server-side/
+sudo npm install
 </command>
     </hudson.tasks.Shell>
   </builders>
