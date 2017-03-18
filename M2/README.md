@@ -84,8 +84,8 @@
 
 | Branch         	| Description 	| Screencast 	|
 |--------------	|----------	|----------	|
-| **master** 	| Checkboxio build job, iTrust build job  	|[Build Screencast](https://www.youtube.com/watch?v=hux_0EK0Taw&feature=youtu.be&hd=1)  	|
-| **coverage**  	| Build iTrust, Run Test, Test Reports and Coverage reports  	|[Coverage Screencast](https://www.youtube.com/watch?v=hux_0EK0Taw&feature=youtu.be&hd=1)    	|
+| **master** 	| Checkboxio build job, iTrust build job  	|[Build Screencast](https://www.youtube.com/watch?v=K0z6441H5fA)  	|
+| **coverage**  	| Build iTrust, Run Test, Test Reports and Coverage reports  	|[Coverage Screencast](https://www.youtube.com/watch?v=WnFKas9hQ8c)    	|
 | **testcases** 	| Fuzzing and useless testcase detector  	|[Testcases Screencast](https://www.youtube.com/watch?v=hux_0EK0Taw&feature=youtu.be&hd=1)    	|
-| **analysis**  	| Analysis on checkbox.io  	|[Analysis Screencast](https://www.youtube.com/watch?v=hux_0EK0Taw&feature=youtu.be&hd=1)    	|
+| **analysis**  	| Analysis on checkbox.io  	|[Analysis Screencast](https://www.youtube.com/watch?v=Do228-dgGjw)    	|
 
