@@ -1,4 +1,4 @@
 #!/bin/sh
-GIT_WORK_TREE=/home/aparnap/production/production-www git checkout -f
+GIT_WORK_TREE=/home/aparnap/CSC519-Project/Deployment/nodejsProject/Deploy/production-www git checkout -f
 CRUMB=$(curl -s 'http://192.168.33.10:8090/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
 curl -X POST -H "$CRUMB" "http://192.168.33.10:8090/job/checkboxio/build"
