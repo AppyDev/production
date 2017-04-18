@@ -1,4 +1,0 @@
----
-- include_vars: "../vars/common.yml"
-
-- include: "setup.yml"

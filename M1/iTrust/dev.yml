@@ -1,7 +1,0 @@
----
-# This playbook deploys iTrust
-
-- name: Install and configure iTrust
-  hosts: nodes
-  roles:
-    - dev

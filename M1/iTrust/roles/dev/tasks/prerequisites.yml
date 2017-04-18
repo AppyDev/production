@@ -1,8 +1,0 @@
----
-
-- name: Install packages required for Ansible
-  become: yes
-  package: name={{ item }} state=latest
-  with_items:
-    - "{{ git_package }}"
-   
