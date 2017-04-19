@@ -6,11 +6,15 @@
     - name: Clone submission repository
       git: repo=https://git@github.com/AppyDev/production.git dest=tool/.
 
+    - name: display
+      debug:
+        msg: "{{ lookup('env', 'MONGOUSER') }}"
+
     - name: Create user
       mongodb_user:
         database: admin
-        name: "{{lookup('env', 'MONGOUSER')}}"
-        password: "{{lookup('env', 'MONGOPWD')}}"
+        name: "{{ lookup('env', 'MONGOUSER') }}"
+        password: "{{ lookup('env', 'MONGOPWD') }}"
         state: present
 
     - name: npm install
