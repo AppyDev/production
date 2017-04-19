@@ -13,7 +13,7 @@
         MONGOUSER: MONGOUSER
     
     - debug:
-        var: "{{ MONGOUSER }}"
+        var: MONGOUSER
 
     - name: Create user
       mongodb_user:
