@@ -7,8 +7,12 @@
       git: repo=https://git@github.com/AppyDev/production.git dest=tool/.
 
     - name: display
+      shell: echo $MONGOUSER
+      register: MONGOUSER
+      environment:
+        MONGOUSER: MONGOUSER
       debug:
-        msg: "{{lookup('env', 'MONGOUSER')}}"
+        msg: {{ MONGOUSER }}
 
     - name: Create user
       mongodb_user:
