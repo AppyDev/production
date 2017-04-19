@@ -5,10 +5,6 @@
 
     - name: Clone submission repository
       git: repo=https://git@github.com/AppyDev/production.git dest=tool/.
-    
-    - name: display
-      debug:
-        msg: "{{ ansible_env.MONGOUSER }}"
 
     - name: Create user
       mongodb_user:
@@ -16,6 +12,7 @@
         name: "{{lookup('env', 'MONGOUSER')}}"
         password: "{{lookup('env', 'MONGOPWD')}}"
         state: present
+      delegate_to: localhost
 
     - name: npm install
       command: chdir=tool/production-www/server-side/site/ npm install
