@@ -11,7 +11,8 @@
       register: MONGOUSER
       environment:
         MONGOUSER: MONGOUSER
-      debug:
+    
+    - debug:
         var: "{{ MONGOUSER }}"
 
     - name: Create user
