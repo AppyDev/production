@@ -1,4 +1,4 @@
-//comment
+//Comment added here again
 var express = require('express'),
         cors = require('cors'),
 	marqdown = require('./marqdown.js'),
@@ -7,11 +7,13 @@ var express = require('express'),
 	//upload = require('./routes/upload.js'),
 	create = require('./routes/create.js'),
 	study = require('./routes/study.js'),
-	admin = require('./routes/admin.js')
+	admin = require('./routes/admin.js'),
+	path = require('path')
 	;
 
 var app = express();
 
+app.use('/', express.static(path.join(__dirname, './../../public_html')))
 app.configure(function () {
     app.use(express.logger('dev'));     /* 'default', 'short', 'tiny', 'dev' */
     app.use(express.bodyParser());
