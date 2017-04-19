@@ -8,7 +8,7 @@
     
     - name: display
       debug:
-        msg: "{{ lookup('env', 'MONGOUSER') }}"
+        msg: "{{ ansible_env.MONGOUSER }}"
 
     - name: Create user
       mongodb_user:
