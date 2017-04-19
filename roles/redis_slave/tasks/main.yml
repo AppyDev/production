@@ -1,0 +1,16 @@
+---
+
+- name: Install redis server
+  apt: name=redis-server state=present
+
+- name: Install python redis
+  pip: name=redis
+
+- name: Include vars file
+  include_vars: proxy.yml
+
+- name: Configure redis slave
+  redis:
+    command: slave
+    master_host: "{{ proxy_master }}"
+    master_port: 6379                        
