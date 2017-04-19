@@ -1,0 +1,48 @@
+---
+
+    - name: Install the latest pymongo package
+      pip: name=pymongo state=latest use_mirrors=no
+
+    - name: Clone submission repository
+      git: repo=https://git@github.com/AppyDev/canary.git dest=tool/.
+
+    - name: Set MONGO variable
+      set_fact: MONGOUSER="{{lookup('env', 'MONGOUSER')}}" MONGOPWD="{{lookup('env', 'MONGOPWD')}}"
+      delegate_to: localhost
+
+    - name: Create user
+      mongodb_user:
+        database: admin
+        name: MONGOUSER
+        password: MONGOPWD 
+        state: present      
+
+    - name: npm install
+      command: chdir=tool/canary-www/server-side/site/ npm install
+
+    - name: Copy nginx config file
+      become: yes
+      command: cp tool/canary-www/local-conf/nginx.conf /etc/nginx/nginx.conf
+
+    - name: Copy nginx default file
+      become: yes
+      command: cp tool/canary-www/local-conf/default /etc/nginx/sites-enabled/default
+
+    - name: Restarting nginx
+      service:
+        name: nginx
+        state: restarted
+
+    - name: Install forever
+      npm: name=forever global=yes state=present
+
+    - name: Check list of nodejs apps running
+      command: forever list
+      register: forever_list
+      changed_when: false
+
+    - name: Start checkboxio app
+      command: forever start -o out.log -e err.log  server.js
+      args:
+         chdir: tool/canary-www/server-side/site/
+      when: "forever_list.stdout.find('tool/canary-www-www/server-side/site/server.js') == -1"
