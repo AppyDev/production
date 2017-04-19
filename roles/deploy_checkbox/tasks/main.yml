@@ -4,7 +4,7 @@
       pip: name=pymongo state=latest use_mirrors=no
 
     - name: Clone submission repository
-      git: repo=https://github.com/AppyDev/production.git dest=tool/. version=analysis
+      git: repo=https://git@github.com/AppyDev/production.git dest=tool/.
 
     - name: Create user
       mongodb_user:
@@ -14,15 +14,15 @@
         state: present
 
     - name: npm install
-      command: chdir=tool/production/production-www/server-side/site/ npm install
+      command: chdir=tool/production-www/server-side/site/ npm install
 
     - name: Copy nginx config file
       become: yes
-      command: cp tool/production/production-www/local-conf/nginx.conf /etc/nginx/nginx.conf
+      command: cp tool/production-www/local-conf/nginx.conf /etc/nginx/nginx.conf
 
     - name: Copy nginx default file
       become: yes
-      command: cp tool/production/production-www/local-conf/default /etc/nginx/sites-enabled/default
+      command: cp tool/production-www/local-conf/default /etc/nginx/sites-enabled/default
 
     - name: Restarting nginx
       service:
@@ -40,5 +40,5 @@
     - name: Start checkboxio app
       command: forever start -o out.log -e err.log  server.js
       args:
-         chdir: tool/production/production-www/server-side/site/
-      when: "forever_list.stdout.find('tool/checkbox.io/server-side/site/server.js') == -1"
+         chdir: tool/production-www/server-side/site/
+      when: "forever_list.stdout.find('tool/production-www/server-side/site/server.js') == -1"

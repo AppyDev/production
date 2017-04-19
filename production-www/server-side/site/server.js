@@ -1,4 +1,3 @@
-//Comment added here again
 var express = require('express'),
         cors = require('cors'),
 	marqdown = require('./marqdown.js'),
