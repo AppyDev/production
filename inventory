@@ -1,2 +1,5 @@
 [production]
-54.201.151.241 ansible_ssh_user=ubuntu 
+34.210.70.170 ansible_ssh_user=ubuntu 
+
+[canary]
+54.201.151.241 ansible_ssh_user=ubuntu
