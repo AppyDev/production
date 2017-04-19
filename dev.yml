@@ -13,5 +13,5 @@
     SMTPEMAIL: "{{lookup('env', 'SMTPEMAIL')}}"
     SMTPPWD: "{{lookup('env', 'SMTPPWD')}}"
   roles:
-    - install_dependencies 
+    #- install_dependencies 
     - deploy_checkbox
