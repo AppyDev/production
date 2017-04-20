@@ -4,7 +4,11 @@
       pip: name=pymongo state=latest use_mirrors=no
 
     - name: Clone submission repository
+<<<<<<< HEAD
       git: repo=https://git@github.com/AppyDev/production.git dest=tool/.
+=======
+      git: repo=https://git@github.com/AppyDev/canary.git dest=tool/.
+>>>>>>> 455c7b7f3603510c803cde8315c828ad490df6cc
 
     - name: Set MONGO variable
       set_fact: MONGOUSER="{{lookup('env', 'MONGOUSER')}}" MONGOPWD="{{lookup('env', 'MONGOPWD')}}"
