@@ -18,15 +18,15 @@
         state: present      
 
     - name: npm install
-      command: chdir=tool/canary-www/server-side/site/ npm install
+      command: chdir=tool/checkboxio/server-side/site/ npm install
 
     - name: Copy nginx config file
       become: yes
-      command: cp tool/canary-www/local-conf/nginx.conf /etc/nginx/nginx.conf
+      command: cp tool/checkboxio/local-conf/nginx.conf /etc/nginx/nginx.conf
 
     - name: Copy nginx default file
       become: yes
-      command: cp tool/canary-www/local-conf/default /etc/nginx/sites-enabled/default
+      command: cp tool/checkboxio/local-conf/default /etc/nginx/sites-enabled/default
 
     - name: Restarting nginx
       service:
@@ -44,5 +44,5 @@
     - name: Start checkboxio app
       command: forever start -o out.log -e err.log  server.js
       args:
-         chdir: tool/canary-www/server-side/site/
-      when: "forever_list.stdout.find('tool/canary-www-www/server-side/site/server.js') == -1"
+         chdir: tool/checkboxio/server-side/site/
+      when: "forever_list.stdout.find('tool/checkboxio/server-side/site/server.js') == -1"
