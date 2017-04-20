@@ -1,5 +1,5 @@
 ---
-# This playbook deploys jenkins server and runs checkbox.io application
+# This playbook deploys jenkins server and runs checkbox.io application test
 
 - name: Install and configure jenkins and run checkbox.io application
   hosts: production
