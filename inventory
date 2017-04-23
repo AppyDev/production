@@ -1,4 +1,4 @@
 [production]
-52.10.128.111 ansible_ssh_user=ubuntu
+52.89.94.162 ansible_ssh_user=ubuntu
 [canary]
-52.24.219.48 ansible_ssh_user=ubuntu
+35.160.213.91 ansible_ssh_user=ubuntu 

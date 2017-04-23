@@ -2,7 +2,7 @@
 # This playbook deploys jenkins server and runs checkbox.io application.
 
 - name: Install and configure jenkins and run checkbox.io application
-  hosts: canary
+  hosts: production
   gather_facts: False
   become: yes
   become_user: root
