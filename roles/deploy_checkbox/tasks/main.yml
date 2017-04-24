@@ -15,7 +15,22 @@
     #     database: admin
     #     name: MONGOUSER
     #     password: MONGOPWD 
-    #     state: present  
+    #     state: present 
+
+    - name: Add env variables
+      lineinfile:
+        dest: /home/ubuntu/.bashrc
+        line: "{{ item }}"
+      with_items:
+        - "export MONGOUSER={{lookup('env', 'MONGOUSER')}}"
+        - "export MONGOPWD={{lookup('env', 'MONGOPWD')}}"
+
+    - name: Source bashrc
+      shell: source /home/ubuntu/.bashrc executable=/bin/bash 
+
+    - name: Print env
+      debug:
+        msg: "{{lookup('env', 'MONGOUSER'}}"
 
     - name: Create user
       mongodb_user:
