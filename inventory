@@ -2,3 +2,4 @@
 35.165.103.8 ansible_ssh_user=ubuntu
 35.166.249.187 ansible_ssh_user=ubuntu
 54.69.222.47 ansible_ssh_user=ubuntu
+
