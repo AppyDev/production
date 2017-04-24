@@ -10,12 +10,23 @@
       set_fact: MONGOUSER="{{lookup('env', 'MONGOUSER')}}" MONGOPWD="{{lookup('env', 'MONGOPWD')}}"
       delegate_to: localhost
 
+    # - name: Create user
+    #   mongodb_user:
+    #     database: admin
+    #     name: MONGOUSER
+    #     password: MONGOPWD 
+    #     state: present  
+
+    - name: Print env variables
+      debug:
+        var: {{ MONGOUSER }}
+
     - name: Create user
       mongodb_user:
         database: admin
-        name: MONGOUSER
-        password: MONGOPWD 
-        state: present      
+        name: admin
+        password: admin 
+        state: present    
 
     - name: npm install
       command: chdir=tool/checkboxio/server-side/site/ npm install
