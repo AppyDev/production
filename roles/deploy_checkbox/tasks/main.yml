@@ -22,8 +22,8 @@
         dest: /home/ubuntu/.bashrc
         line: "{{ item }}"
       with_items:
-        - "export MONGOUSER={{ $LOOKUP('env', 'MONGOUSER') }}"
-        - "export MONGOPWD={{ $LOOKUP('env', 'MONGOPWD') }}"
+        - "export MONGOUSER={{ lookup('env', 'MONGOUSER') }}"
+        - "export MONGOPWD={{ lookup('env', 'MONGOPWD') }}"
       delegate_to: localhost
 
     - name: Source bashrc
@@ -31,7 +31,7 @@
 
     - name: Print env
       debug:
-        msg: "{{ $LOOKUP('env', 'MONGOUSER') }}"
+        msg: "{{ lookup('env', 'MONGOUSER') }}"
 
     - name: Create user
       mongodb_user:
