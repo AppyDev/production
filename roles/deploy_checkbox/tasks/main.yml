@@ -22,9 +22,8 @@
         dest: /home/ubuntu/.bashrc
         line: "{{ item }}"
       with_items:
-        - "export MONGOUSER=admin"
-        - "export MONGOPWD=admin"
-      delegate_to: localhost
+        - "export MONGOUSER={{ lookup('env', 'MONGOUSER') }}"
+        - "export MONGOPWD={{ lookup('env', 'MONGOPWD') }}"
 
     - name: Source bashrc
       shell: source /home/ubuntu/.bashrc executable=/bin/bash 
