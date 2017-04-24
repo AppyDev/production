@@ -19,7 +19,7 @@
 
     - name: Print env variables
       debug:
-        var: MONGOUSER
+        msg: "{{lookup('env', 'MONGOUSER')}}"
 
     - name: Create user
       mongodb_user:
