@@ -6,9 +6,9 @@
     - name: Clone submission repository
       git: repo=https://git@github.com/AppyDev/{{ group_names[0] }}.git dest=tool/.
 
-    - name: Set MONGO variable
-      set_fact: MONGOUSER="{{lookup('env', 'MONGOUSER')}}" MONGOPWD="{{lookup('env', 'MONGOPWD')}}"
-      delegate_to: localhost
+    # - name: Set MONGO variable
+    #   set_fact: MONGOUSER="{{lookup('env', 'MONGOUSER')}}" MONGOPWD="{{lookup('env', 'MONGOPWD')}}"
+    #   delegate_to: localhost
 
     # - name: Create user
     #   mongodb_user:
@@ -19,7 +19,7 @@
 
     - name: Print env variables
       debug:
-        msg: "{{lookup('env', 'MONGOUSER')}}"
+        env: MONGOUSER
 
     - name: Create user
       mongodb_user:
