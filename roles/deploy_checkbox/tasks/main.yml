@@ -46,7 +46,7 @@
 
     - name: Replace a line in email.js file
       lineinfile:
-        dest: /home/ubuntu/tool/checkboxio/server-side/site/node_modules/emailjs/smtp/response.js
+        path: /home/ubuntu/tool/checkboxio/server-side/site/node_modules/emailjs/smtp/response.js
         regexp: '^\s*return new SMTPResponse(stream);.*$'    
         line: 'return new SMTPResponse(stream , 1000);'
         backrefs: yes
