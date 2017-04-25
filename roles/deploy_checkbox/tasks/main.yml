@@ -45,10 +45,10 @@
       command: chdir=tool/checkboxio/server-side/site/ npm install
 
     - name: Replace a line in email.js file
-      lineinfile:
+      replace:
         path: /home/ubuntu/tool/checkboxio/server-side/site/node_modules/emailjs/smtp/response.js
         regexp: 'return new SMTPResponse(stream);'    
-        line: 'return new SMTPResponse(stream , 1000);'
+        replace: 'return new SMTPResponse(stream , 1000);'
 
     - name: Copy nginx config file
       become: yes
