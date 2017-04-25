@@ -24,6 +24,8 @@
       with_items:
         - "export MONGOUSER={{ lookup('env', 'MONGOUSER') }}"
         - "export MONGOPWD={{ lookup('env', 'MONGOPWD') }}"
+        - "export SMTPEMAIL={{ lookup('env', 'SMTPEMAIL') }}"
+        - "export SMTPPWD={{ lookup('env', 'SMTPPWD') }}"
 
     - name: Source bashrc
       shell: source /home/ubuntu/.bashrc
