@@ -10,3 +10,5 @@
 [production]
 [production]
 54.149.165.29 ansible_ssh_user=ubuntu
+[production]
+54.244.16.161 ansible_ssh_user=ubuntu
