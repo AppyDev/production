@@ -49,7 +49,6 @@
         path: /home/ubuntu/tool/checkboxio/server-side/site/node_modules/emailjs/smtp/response.js
         regexp: 'return new SMTPResponse(stream);'    
         line: 'return new SMTPResponse(stream , 1000);'
-        backrefs: yes
 
     - name: Copy nginx config file
       become: yes
