@@ -47,8 +47,8 @@
     - name: Replace a line in email.js file
       replace:
         path: /home/ubuntu/tool/checkboxio/server-side/site/node_modules/emailjs/smtp/response.js
-        regexp: 'return new SMTPResponse(stream);'    
-        replace: 'return new SMTPResponse(stream , 1000);'
+        regexp: return new SMTPResponse(stream);    
+        replace: return new SMTPResponse(stream , 1000);
 
     - name: Copy nginx config file
       become: yes
