@@ -1,6 +1,12 @@
 ---
     - name: install python 2
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
+    - name: Install ansible dependency
+      command: sudo apt-get install software-properties-common
+
+    - name: Add ansible repo
+      command: sudo apt-add-repository ppa:ansible/ansible
       
     - name: Install required packages for build in the VM 
       apt: name={{ item }} state=present
@@ -11,6 +17,11 @@
     - name: apt update
       become_user: root
       command: sudo apt-get update
+
+    - name: Install ansible
+      apt: name={{ item }} state=latest update_cache=yes
+      with_items:
+        - ansible
 
     - name: Install dependencies
       apt: name={{ item }} state=present
