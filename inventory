@@ -1,2 +1,2 @@
 [production]
-34.209.149.126 ansible_ssh_user=ubuntu
+34.209.149.242 ansible_ssh_user=ubuntu
